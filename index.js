@@ -57,6 +57,6 @@ app.get("/", (req, res) => {
   res.json("Welcome in srikandi");
 });
 
-app.listen(5000, () => {
-  console.log("Server telah dijalankan 5000");
+app.listen(4000, () => {
+  console.log("Server telah dijalankan 4000");
 });
