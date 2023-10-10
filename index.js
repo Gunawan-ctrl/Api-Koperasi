@@ -4,12 +4,16 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const path = require("path");
+const dotenv = require('dotenv').config();
 
-const mongoURL = "mongodb://0.0.0.0:27017/srikandi";
+mongoose.set('strictQuery', false);
+
+// env
+const PORT = process.env.PORT
+const mongoURL = process.env.MONGO_URL
 
 mongoose
   .connect(mongoURL, {
-    useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -57,6 +61,6 @@ app.get("/", (req, res) => {
   res.json("Welcome in srikandi");
 });
 
-app.listen(4000, () => {
-  console.log("Server telah dijalankan 4000");
+app.listen(PORT, () => {
+  console.log(`Server telah dijalankan di port ${PORT}`);
 });
